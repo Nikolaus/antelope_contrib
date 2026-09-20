@@ -113,7 +113,8 @@ def create_dbdesc(dbpath, dbschema, tablename=None):
             idmatch = kdb.lookup(table=tablename)
         except Exception as __:
             elog.complain(
-                "table %s does not exist in schema for database %s" % (tablename, dbpath)
+                "table %s does not exist in schema for database %s"
+                % (tablename, dbpath)
             )
             return None
         return idmatch
@@ -241,6 +242,7 @@ def get_remark(db):
         remark = "".join(remarks)
     return remark
 
+
 def mark_remark(db):
     if db.table < 0 or db.record < 0:
         elog.complain("cannot clear remark from unspecified record")
@@ -259,6 +261,7 @@ def mark_remark(db):
         if len(records) > 0:
             for db_r.record in records:
                 db_r.mark()
+
 
 def rfc33392epoch(timestring):
     """convert internet timestamp in RFC3339 format. Returns normal antelope epoch time"""
